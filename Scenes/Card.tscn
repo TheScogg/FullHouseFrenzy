@@ -1,0 +1,49 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scripts/Card.gd" type="Script" id=1]
+
+[sub_resource type="Shader" id=1]
+
+code = ""
+
+[sub_resource type="ShaderMaterial" id=2]
+
+render_priority = 0
+shader = SubResource( 1 )
+
+[node name="Card" type="Node2D"]
+
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
+
+[node name="Control" type="Control" parent="." index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Focus" ]
+
+[node name="Button" type="TouchScreenButton" parent="Control" index="0"]
+
+material = SubResource( 2 )
+normal = null
+pressed = null
+bitmask = null
+shape = null
+shape_centered = true
+shape_visible = true
+passby_press = true
+action = ""
+visibility_mode = 0
+_sections_unfolded = [ "Material", "Transform", "Visibility" ]
+
+[connection signal="pressed" from="Control/Button" to="." method="_on_Button_pressed"]
+
+

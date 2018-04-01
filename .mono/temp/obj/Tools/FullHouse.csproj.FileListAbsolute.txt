@@ -1,0 +1,10 @@
+C:\Users\Chris\Repos\FullHouse\.mono\temp\bin\Tools\FullHouse.dll
+C:\Users\Chris\Repos\FullHouse\.mono\temp\bin\Tools\FullHouse.pdb
+C:\Users\Chris\Repos\FullHouse\.mono\temp\obj\Tools\FullHouse.csprojResolveAssemblyReference.cache
+C:\Users\Chris\Repos\FullHouse\.mono\temp\obj\Tools\FullHouse.csproj.CoreCompileInputs.cache
+C:\Users\Chris\Repos\FullHouse\.mono\temp\obj\Tools\FullHouse.dll
+C:\Users\Chris\Repos\FullHouse\.mono\temp\obj\Tools\FullHouse.pdb
+C:\Repos\FullHouse\.mono\temp\obj\Tools\FullHouse.csprojResolveAssemblyReference.cache
+C:\Repos\FullHouse\.mono\temp\obj\Tools\FullHouse.csproj.CoreCompileInputs.cache
+C:\Repos\FullHouse\.mono\temp\obj\Tools\FullHouse.dll
+C:\Repos\FullHouse\.mono\temp\obj\Tools\FullHouse.pdb

@@ -75,26 +75,14 @@ func repopulate():
 							globals.cardsArray[level][j] = null
 							break
 							
-#					file.store_line(String(globals.cardsArray[i][j].getCard()))
-#					for k in range(i+1, height):
-#						if (globals.cardsArray[k][j]):
-#							higher.append(globals.cardsArray[k][j])
-#					if (higher.size() > 0):
-#						globals.cardsArray[i][j] = higher[0]
-#
-#						#TESTING TESTING TESTING
-#						higher[0] = null
 
 				else:
 					var card = Card.instance()
 					globals.cardsArray[i][j] = card
 					self.add_child(globals.cardsArray[i][j])
 					globals.cardsArray[i][j].getCard().coordinates = [i,j]
-#					file.store_line(String(globals.cardsArray[i][j].getCard()))
 					self.remove_child(globals.cardsArray[i][j])
 
-#	for card in globals.cardsSelected:
-#		card.loadCard(card.card.coordinates)
 
 	globals.cardsSelected.clear()
 	

@@ -43,16 +43,70 @@ func populate():
 		
 ## Redraws Board after winning hand, dropping existing higher tiles into lower voids left by winning hand, 
 ## and generating new random cards for empty spots
+func save(content):
+    var file = File.new()
+    file.open("user://save_game.dat", file.WRITE)
+    file.store_string(content)
+    file.close()
+
 func repopulate():
-	for card in globals.cardsSelected:
-		card.loadCard(card.card.coordinates)
+	var file = File.new()
+	file.open("res://cardsArrayOutput.txt", file.WRITE)
+	
+
+	for i in range(height):
+		print (height - 1)
+		for j in range(width):
+			if (globals.cardsArray[i][j] in globals.cardsSelected):
+				globals.cardsArray[i][j] = null
+
+			if (!globals.cardsArray[i][j]):
+				if (i < height - 1):
+
+					var higher = []
+					var level = i + 1
+					
+					while (level < height):
+						if (globals.cardsArray[level][j] != null):
+							print ("i: ", i, " j: ", j)
+							globals.cardsArray[i][j] = globals.cardsArray[level][j]
+							globals.cardsArray[i][j].getCard().coordinates = [i,j]
+							globals.cardsArray[i][j].getCard().selected = false
+							globals.cardsArray[level][j] = null
+							break
+							
+#					file.store_line(String(globals.cardsArray[i][j].getCard()))
+#					for k in range(i+1, height):
+#						if (globals.cardsArray[k][j]):
+#							higher.append(globals.cardsArray[k][j])
+#					if (higher.size() > 0):
+#						globals.cardsArray[i][j] = higher[0]
+#
+#						#TESTING TESTING TESTING
+#						higher[0] = null
+
+				else:
+					var card = Card.instance()
+					globals.cardsArray[i][j] = card
+					self.add_child(globals.cardsArray[i][j])
+					globals.cardsArray[i][j].getCard().coordinates = [i,j]
+#					file.store_line(String(globals.cardsArray[i][j].getCard()))
+					self.remove_child(globals.cardsArray[i][j])
+
+#	for card in globals.cardsSelected:
+#		card.loadCard(card.card.coordinates)
+
 	globals.cardsSelected.clear()
 	
-	## TODO : GRAB CARD ABOVE REMOVED CARD. IF NO CARD EXISTS, THEN DO THIS BELOW
-#		card.get_node("Control/Button").queue_free()
-#		card.add_child(globals.cardsArray[(card.getCard().coordinates[0])+1][(card.getCard().coordinates[1])])
-#		card = globals.cardsArray[(card.getCard().coordinates[0])+1][(card.getCard().coordinates[1])]
-#		print (CardNode.setTexture(card))
+	for i in range(height):
+		for j in range(width):
+			file.store_line(String(globals.cardsArray[i][j].getCard()))
+
+
+			
+	
+	file.close()
+	
 		
 # Finds winning hand and sends signal to UI.displayWinningHand(hand)
 func submitHand():
@@ -88,7 +142,3 @@ static func validateMove(card):
 			return true
 
 	return false
-
-	
-	
-

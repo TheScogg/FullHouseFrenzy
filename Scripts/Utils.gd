@@ -10,6 +10,7 @@ func _ready():
 
 static func RandomCard(coordinates):
 	randomize()
+	print (coordinates)
 	var suits = ["Spades", "Clubs", "Diamonds", "Hearts"]
 	#directory is an Array of filenames
 

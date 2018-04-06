@@ -12,13 +12,17 @@ onready var CardsNode = get_node("/root/Main/Cards")
 var card
 var dragging
 
+func init(row, column):
+	loadCard([row, column])
+	self.position = Vector2(column * 150, (-row * 150))
 
 func _ready():
 	# Called every time the node is added to the scene.
 	# Initialization here
 	set_process(true)
+	
 #	UI.connect("touch", self, "getTouch")
-	loadCard([0,0])
+
 
 func getCard():
 	return card
@@ -26,6 +30,7 @@ func getCard():
 ###################
 func loadCard(coordinates):
 	card = Utils.RandomCard(coordinates)
+	position = Vector2(card.coordinates[0], card.coordinates[1])
 	setTexture(card)
 	
 func setTexture(card):
@@ -61,3 +66,10 @@ func _on_Button_pressed():
 #	if (globals.cardsSelected.size() == 5 && !Input.is_mouse_button_pressed(1)):
 #		UI._on_SubmitButton_pressed()
 #		print (getCard().name, " released")
+
+
+func _on_fadeCard_tween_completed(object, key):
+#	if self in globals.cardsSelected:
+#		globals.cardsSelected.clear()
+#		CardsNode.remove_child(self)
+	

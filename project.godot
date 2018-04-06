@@ -22,7 +22,6 @@ globals="*res://Scripts/globals.gd"
 
 window/size/width=750
 window/size/height=1541
-window/size/borderless=true
 window/size/test_width=375
 window/size/test_height=667
 window/handheld/orientation="portrait"

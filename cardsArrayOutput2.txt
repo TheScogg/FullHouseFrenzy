@@ -1,0 +1,49 @@
+(coordinates:[0, 0]), (name:13Hearts), (number:13), (selected:False), (suit:Hearts), (texture:13Hearts.png)
+(coordinates:[0, 1]), (name:9Spades), (number:9), (selected:False), (suit:Spades), (texture:9Spades.png)
+(coordinates:[0, 2]), (name:4Diamonds), (number:4), (selected:False), (suit:Diamonds), (texture:4Diamonds.png)
+(coordinates:[0, 3]), (name:12Hearts), (number:12), (selected:False), (suit:Hearts), (texture:12Hearts.png)
+(coordinates:[0, 4]), (name:4Clubs), (number:4), (selected:False), (suit:Clubs), (texture:4Clubs.png)
+
+
+(coordinates:[1, 0]), (name:7Spades), (number:7), (selected:False), (suit:Spades), (texture:7Spades.png)
+(coordinates:[1, 1]), (name:3Diamonds), (number:3), (selected:False), (suit:Diamonds), (texture:3Diamonds.png)
+(coordinates:[1, 2]), (name:12Hearts), (number:12), (selected:False), (suit:Hearts), (texture:12Hearts.png)
+(coordinates:[1, 3]), (name:2Spades), (number:2), (selected:False), (suit:Spades), (texture:2Spades.png)
+(coordinates:[1, 4]), (name:13Diamonds), (number:13), (selected:False), (suit:Diamonds), (texture:13Diamonds.png)
+
+
+(coordinates:[2, 0]), (name:13Clubs), (number:13), (selected:False), (suit:Clubs), (texture:13Clubs.png)
+(coordinates:[2, 1]), (name:8Hearts), (number:8), (selected:False), (suit:Hearts), (texture:8Hearts.png)
+(coordinates:[2, 2]), (name:10Hearts), (number:10), (selected:False), (suit:Hearts), (texture:10Hearts.png)
+(coordinates:[2, 3]), (name:7Diamonds), (number:7), (selected:False), (suit:Diamonds), (texture:7Diamonds.png)
+(coordinates:[2, 4]), (name:11Hearts), (number:11), (selected:False), (suit:Hearts), (texture:11Hearts.png)
+
+
+(coordinates:[3, 0]), (name:7Spades), (number:7), (selected:False), (suit:Spades), (texture:7Spades.png)
+(coordinates:[3, 1]), (name:6Spades), (number:6), (selected:False), (suit:Spades), (texture:6Spades.png)
+(coordinates:[3, 2]), (name:13Hearts), (number:13), (selected:False), (suit:Hearts), (texture:13Hearts.png)
+(coordinates:[3, 3]), (name:4Hearts), (number:4), (selected:False), (suit:Hearts), (texture:4Hearts.png)
+(coordinates:[3, 4]), (name:5Hearts), (number:5), (selected:False), (suit:Hearts), (texture:5Hearts.png)
+
+
+(coordinates:[4, 0]), (name:14Clubs), (number:14), (selected:False), (suit:Clubs), (texture:14Clubs.png)
+(coordinates:[4, 1]), (name:2Spades), (number:2), (selected:False), (suit:Spades), (texture:2Spades.png)
+(coordinates:[4, 2]), (name:14Hearts), (number:14), (selected:False), (suit:Hearts), (texture:14Hearts.png)
+(coordinates:[4, 3]), (name:10Spades), (number:10), (selected:False), (suit:Spades), (texture:10Spades.png)
+(coordinates:[4, 4]), (name:12Diamonds), (number:12), (selected:False), (suit:Diamonds), (texture:12Diamonds.png)
+
+
+(coordinates:[5, 0]), (name:12Hearts), (number:12), (selected:False), (suit:Hearts), (texture:12Hearts.png)
+(coordinates:[5, 1]), (name:11Clubs), (number:11), (selected:False), (suit:Clubs), (texture:11Clubs.png)
+(coordinates:[5, 2]), (name:13Clubs), (number:13), (selected:False), (suit:Clubs), (texture:13Clubs.png)
+(coordinates:[5, 3]), (name:5Spades), (number:5), (selected:False), (suit:Spades), (texture:5Spades.png)
+(coordinates:[5, 4]), (name:8Clubs), (number:8), (selected:False), (suit:Clubs), (texture:8Clubs.png)
+
+
+(coordinates:[6, 0]), (name:7Spades), (number:7), (selected:False), (suit:Spades), (texture:7Spades.png)
+(coordinates:[6, 1]), (name:11Spades), (number:11), (selected:False), (suit:Spades), (texture:11Spades.png)
+(coordinates:[6, 2]), (name:12Spades), (number:12), (selected:False), (suit:Spades), (texture:12Spades.png)
+(coordinates:[6, 3]), (name:8Hearts), (number:8), (selected:False), (suit:Hearts), (texture:8Hearts.png)
+(coordinates:[6, 4]), (name:13Spades), (number:13), (selected:False), (suit:Spades), (texture:13Spades.png)
+
+

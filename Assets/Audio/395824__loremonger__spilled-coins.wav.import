@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/395824__loremonger__spilled-coins.wav-057bf3bfc5bd3169f8fc2971b7d6df02.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/395824__loremonger__spilled-coins.wav"
+source_md5="c10983d5749a3e57e1df0b25cd635290"
+
+dest_files=[ "res://.import/395824__loremonger__spilled-coins.wav-057bf3bfc5bd3169f8fc2971b7d6df02.sample" ]
+dest_md5="841302a3dc544c7b972c023dc7736db1"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

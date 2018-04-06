@@ -25,12 +25,13 @@ func displayScore():
 	pass
 
 func displayWinningHand(hand):
+#	$CoinsJingling.play()
 	print ("SIGNAL CONNECTED")
 	var addToScore = hand[2]
-	$WinningHandControl/WinningHandLabel.text = hand[0].to_upper()
+	$BlackBG/WinningHandControl/WinningHandLabel.text = hand[0].to_upper()
 	print (globals.score, " + ", addToScore, " = ", globals.score + addToScore)
 	globals.score = globals.score + hand[2]
-	$ScoreLabel.text = String(globals.score)
+	$ScoreBG/ScoreLabel.text = String(globals.score)
 
 #func _on_CancelButton_pressed():
 #	emit_signal("cancel")
@@ -44,7 +45,7 @@ func _on_SubmitButton_pressed():
 func _on_timer_timeout():
 
 	globals.score -= 1
-	$ScoreLabel.text = String(globals.score)
+	$ScoreBG/ScoreLabel.text = String(globals.score)
 	
 func startScoreTimer():
 	var timer = Timer.new()

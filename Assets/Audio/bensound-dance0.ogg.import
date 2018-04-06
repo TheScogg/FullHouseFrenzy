@@ -1,0 +1,18 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/bensound-dance0.ogg-eacffa329c8241754bbd31d994b405e6.oggstr"
+
+[deps]
+
+source_file="res://Assets/Audio/bensound-dance0.ogg"
+source_md5="cf0c9d99846a07ada74942b880e0f5ea"
+
+dest_files=[ "res://.import/bensound-dance0.ogg-eacffa329c8241754bbd31d994b405e6.oggstr" ]
+dest_md5="ccb4e0b99583f7bfe8780076f149c3a8"
+
+[params]
+
+loop=true
+loop_offset=0

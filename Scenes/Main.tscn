@@ -16,4 +16,22 @@ _sections_unfolded = [ "Transform" ]
 width = 5
 height = 7
 
+[node name="DeleteCardsTween" type="Tween" parent="Cards" index="0"]
+
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+
+[node name="RedrawTimer" type="Timer" parent="Cards" index="1"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[connection signal="timeout" from="Cards/RedrawTimer" to="Cards" method="_on_RedrawTimer_timeout"]
+
 

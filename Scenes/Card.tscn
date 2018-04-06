@@ -1,17 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=2 format=2]
 
 [ext_resource path="res://Scripts/Card.gd" type="Script" id=1]
 
-[sub_resource type="Shader" id=1]
-
-code = ""
-
-[sub_resource type="ShaderMaterial" id=2]
-
-render_priority = 0
-shader = SubResource( 1 )
-
-[node name="Card" type="Node2D" index="0"]
+[node name="Card" type="Node2D"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
@@ -32,7 +23,6 @@ _sections_unfolded = [ "Focus" ]
 
 [node name="Button" type="TouchScreenButton" parent="Control" index="0"]
 
-material = SubResource( 2 )
 normal = null
 pressed = null
 bitmask = null
@@ -44,6 +34,34 @@ action = ""
 visibility_mode = 0
 _sections_unfolded = [ "Material", "Transform", "Visibility" ]
 
+[node name="Timer" type="Timer" parent="." index="1"]
+
+process_mode = 1
+wait_time = 2.0
+one_shot = false
+autostart = false
+
+[node name="Tween" type="Tween" parent="." index="2"]
+
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+_sections_unfolded = [ "playback" ]
+
+[node name="fadeCard" type="Tween" parent="." index="3"]
+
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+
 [connection signal="pressed" from="Control/Button" to="." method="_on_Button_pressed"]
+
+[connection signal="tween_completed" from="fadeCard" to="." method="_on_fadeCard_tween_completed"]
 
 

@@ -1,151 +1,319 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://Scripts/UI.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Art/UI/architecture-bright-cars-444964.jpg" type="Texture" id=2]
-[ext_resource path="res://Assets/Art/UI/Logo.png" type="Texture" id=3]
-[ext_resource path="res://Assets/Fonts/BebasNeue-Regular.ttf" type="DynamicFontData" id=4]
-[ext_resource path="res://Assets/Art/UI/card_background.jpg" type="Texture" id=5]
-[ext_resource path="res://Assets/Audio/bensound-dance.ogg" type="AudioStream" id=6]
-[ext_resource path="res://Assets/Audio/395824__loremonger__spilled-coins.wav" type="AudioStream" id=7]
+[ext_resource path="res://Assets/Art/UI/card_background.jpg" type="Texture" id=2]
+[ext_resource path="res://Assets/Art/UI/Game/snowflakeSpritesheet.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Art/UI/Particles/spritesheet-512px-by-197px-per-frame.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Audio/bensound-dance.ogg" type="AudioStream" id=5]
+[ext_resource path="res://Assets/Audio/140382__d-w__coins-01.wav" type="AudioStream" id=6]
+[ext_resource path="res://Assets/Audio/270476__littlerobotsoundfactory__stab-knife-00.wav" type="AudioStream" id=7]
+[ext_resource path="res://Assets/Audio/fireball.ogg" type="AudioStream" id=8]
+[ext_resource path="res://Assets/Audio/snow.ogg" type="AudioStream" id=9]
+[ext_resource path="res://Assets/Fonts/BebasNeue-Regular.ttf" type="DynamicFontData" id=10]
+[ext_resource path="res://Assets/Art/UI/Game/Top.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Art/UI/Game/Win2Pair.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Art/UI/Game/TopMenu.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Art/UI/Game/3Lines.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Art/UI/Game/BottomBar/slice6.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Art/UI/Game/BottomBar/slice2.png" type="Texture" id=16]
+[ext_resource path="res://Assets/Art/UI/Game/BottomBar/slice7.png" type="Texture" id=17]
+[ext_resource path="res://Assets/Art/UI/Game/BottomBar/fxDot.png" type="Texture" id=18]
+[ext_resource path="res://Assets/Art/UI/Game/BottomBar/slice3.png" type="Texture" id=19]
+[ext_resource path="res://Assets/Art/UI/Game/BottomBar/slice8.png" type="Texture" id=20]
+[ext_resource path="res://Assets/Art/UI/Game/BottomBar/slice4.png" type="Texture" id=21]
+[ext_resource path="res://Assets/Art/UI/Game/BottomBar/slice9.png" type="Texture" id=22]
+[ext_resource path="res://Assets/Art/UI/Game/BottomBar/slice5.png" type="Texture" id=23]
+[ext_resource path="res://Assets/Art/UI/Game/BottomBar/slice10.png" type="Texture" id=24]
+[ext_resource path="res://Assets/Art/UI/Game/BottomBar/slice1.png" type="Texture" id=25]
+[ext_resource path="res://Assets/Art/UI/Game/BottomBar/slice11.png" type="Texture" id=26]
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="ParticlesMaterial" id=1]
 
-size = 75
+render_priority = 0
+trail_divisor = 1
+emission_shape = 2
+emission_box_extents = Vector3( 220, 1, 1 )
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = true
+spread = 180.0
+flatness = 0.0
+gravity = Vector3( 0, 98, 0 )
+initial_velocity = 1.0
+initial_velocity_random = 0.0
+angular_velocity = 0.5
+angular_velocity_random = 1.0
+orbit_velocity = 0.05
+orbit_velocity_random = 1.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 0.0
+damping_random = 0.0
+angle = 0.0
+angle_random = 0.0
+scale = 0.03
+scale_random = 0.0
+color = Color( 1, 1, 1, 1 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 2.0
+anim_speed_random = 1.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = true
+_sections_unfolded = [ "Angle", "Angular Velocity", "Animation", "Color", "Damping", "Emission Shape", "Flags", "Gravity", "Hue Variation", "Orbit Velocity", "Radial Accel", "Scale", "Spread", "Tangential Accel", "Trail" ]
+
+[sub_resource type="Gradient" id=2]
+
+offsets = PoolRealArray( 0, 0.467456, 0.751479, 1 )
+colors = PoolColorArray( 0, 0, 0, 1, 0.621302, 0.621302, 0.621302, 1, 0.742188, 0.214539, 0.214539, 1, 0.0647721, 0.0275574, 0.503906, 1 )
+
+[sub_resource type="GradientTexture" id=3]
+
+flags = 4
+gradient = SubResource( 2 )
+width = 2048
+
+[sub_resource type="Curve" id=4]
+
+min_value = 0.0
+max_value = 1.0
+bake_resolution = 100
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.163865, 0.295898 ), -4.50074, 0.0, 0, 0 ]
+_sections_unfolded = [ "Resource" ]
+
+[sub_resource type="CurveTexture" id=5]
+
+flags = 4
+width = 2048
+curve = SubResource( 4 )
+
+[sub_resource type="ParticlesMaterial" id=6]
+
+render_priority = 0
+trail_divisor = 1
+trail_size_modifier = SubResource( 5 )
+emission_shape = 2
+emission_box_extents = Vector3( 200, 1, 1 )
+flag_align_y = false
+flag_rotate_y = true
+flag_disable_z = true
+spread = 45.0
+flatness = 0.0
+gravity = Vector3( 0, 98, 0 )
+initial_velocity = 1.0
+initial_velocity_random = 0.0
+angular_velocity = 0.0
+angular_velocity_random = 0.0
+orbit_velocity = -0.05
+orbit_velocity_random = 0.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+radial_accel = 5.0
+radial_accel_random = 0.2
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 0.0
+damping_random = 0.0
+angle = 45.0
+angle_random = 0.5
+scale = 0.02
+scale_random = 0.2
+color_ramp = SubResource( 3 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 20.0
+anim_speed_random = 1.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = true
+_sections_unfolded = [ "Angle", "Animation", "Color", "Emission Shape", "Flags", "Gravity", "Initial Velocity", "Orbit Velocity", "Radial Accel", "Scale", "Spread", "Trail" ]
+
+[sub_resource type="DynamicFont" id=7]
+
+size = 91
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 4 )
+font_data = ExtResource( 10 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Resource", "Settings" ]
 
-[sub_resource type="DynamicFontData" id=2]
+[sub_resource type="Animation" id=8]
 
-font_path = "res://Assets/Fonts/POKERFACE.ttf"
+length = 1.0
+loop = true
+step = 0.1
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": ""
+} ]
+}
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFontData" id=9]
 
-size = 90
+font_path = "res://Assets/Fonts/BebasNeue-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=10]
+
+size = 50
 use_mipmaps = false
-use_filter = false
-font_data = SubResource( 2 )
-_sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
+use_filter = true
+font_data = SubResource( 9 )
+_sections_unfolded = [ "Font", "Settings" ]
 
-[node name="UI" type="Node2D" index="0"]
+[node name="UI" type="Node2D"]
 
-script = ExtResource( 1 )
-
-[node name="LogoBackground" type="Polygon2D" parent="." index="0"]
-
-modulate = Color( 1, 1, 1, 0.884 )
 z_index = 1
-polygon = PoolVector2Array( -15.3863, -90.6893, -9.38556, 262.077, 750.549, 262.077, 754.568, -87.349 )
-uv = PoolVector2Array(  )
-color = Color( 0, 0, 0, 1 )
-vertex_colors = PoolColorArray(  )
-offset = Vector2( 0, 0 )
-antialiased = false
-texture = null
-texture_offset = Vector2( 0, 0 )
-texture_scale = Vector2( 1, 1 )
-texture_rotation_degrees = 0.0
-invert_enable = false
-invert_border = 100.0
-_sections_unfolded = [ "Texture", "Transform", "Visibility", "Z Index" ]
+script = ExtResource( 1 )
+_sections_unfolded = [ "Material", "Visibility", "Z Index" ]
+__meta__ = {
+"_edit_horizontal_guides_": [ 2030.0, -674.151 ]
+}
+scoreLabel = NodePath("CanvasLayer/WinningHandControl/ScoreLabel")
+pauseButton = NodePath("BottomBar/Pause")
 
-[node name="architecture-bright-cars-444964" type="Sprite" parent="LogoBackground" index="0"]
+[node name="BoardBG" type="Sprite" parent="." index="0"]
 
-position = Vector2( 371.276, 110.939 )
-scale = Vector2( 0.184199, 0.184199 )
+position = Vector2( -558.686, 476.093 )
+scale = Vector2( 1.12138, 1.62275 )
 z_index = 1
 texture = ExtResource( 2 )
-_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
+centered = false
+_sections_unfolded = [ "Material", "Offset", "Transform", "Visibility", "Z Index" ]
 
-[node name="Logo" type="Sprite" parent="LogoBackground" index="1"]
+[node name="Effects" type="Node2D" parent="BoardBG" index="0"]
 
-position = Vector2( 372.612, 78.9574 )
-scale = Vector2( 1.48985, 1.48985 )
-z_index = 1
+z_index = 4
+_sections_unfolded = [ "Z Index" ]
+
+[node name="Snow" type="Node2D" parent="BoardBG/Effects" index="0"]
+
+[node name="Particles2D" type="Particles2D" parent="BoardBG/Effects/Snow" index="0"]
+
+modulate = Color( 1, 1, 1, 0.646392 )
+position = Vector2( 575.324, -290.961 )
+scale = Vector2( 3.88728, 1.42219 )
+z_index = -3
+emitting = false
+amount = 250
+lifetime = 5.0
+one_shot = false
+preprocess = 1.0
+speed_scale = 1.0
+explosiveness = 0.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 300, 300 )
+local_coords = true
+draw_order = 0
+process_material = SubResource( 1 )
 texture = ExtResource( 3 )
-_sections_unfolded = [ "Material", "Transform", "Visibility", "Z Index" ]
+normal_map = null
+h_frames = 3
+v_frames = 2
+_sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time", "Transform", "Visibility", "Z Index" ]
 
-[node name="ScoreBG" type="Polygon2D" parent="." index="1"]
+[node name="Fire" type="Node2D" parent="BoardBG/Effects" index="1"]
 
-position = Vector2( 82.8227, -104.766 )
-scale = Vector2( 1.23436, 1.20992 )
-z_index = 2
-polygon = PoolVector2Array( -48.2477, 201.563, -47.8942, 274.765, 100.601, 275.032, 100.601, 200.647 )
-uv = PoolVector2Array(  )
-color = Color( 0, 0, 0, 1 )
-vertex_colors = PoolColorArray(  )
-offset = Vector2( 0, 0 )
-antialiased = false
-texture = null
-texture_offset = Vector2( 0, 0 )
-texture_scale = Vector2( 1, 1 )
-texture_rotation_degrees = 0.0
-invert_enable = false
-invert_border = 100.0
-_sections_unfolded = [ "Texture", "Visibility", "Z Index" ]
+[node name="Particles2D" type="Particles2D" parent="BoardBG/Effects/Fire" index="0"]
 
-[node name="ScoreLabel" type="Label" parent="ScoreBG" index="0"]
+position = Vector2( 1559.89, -133.547 )
+scale = Vector2( 3.88728, 1.42219 )
+z_index = -3
+emitting = false
+amount = 100
+lifetime = 5.0
+one_shot = false
+preprocess = 1.0
+speed_scale = 1.0
+explosiveness = 0.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 300, 300 )
+local_coords = true
+draw_order = 0
+process_material = SubResource( 6 )
+texture = ExtResource( 4 )
+normal_map = null
+h_frames = 3
+v_frames = 2
+_sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time", "Transform", "Visibility", "Z Index" ]
 
-modulate = Color( 1, 0.800262, 0.269531, 1 )
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = -41.0
-margin_top = 196.0
-margin_right = 122.0
-margin_bottom = 304.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-custom_fonts/font = SubResource( 1 )
-text = "30"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Rect", "Size Flags", "Visibility", "custom_constants", "custom_fonts" ]
+[node name="Sounds" type="Node2D" parent="." index="1"]
 
-[node name="BoardBG" type="Sprite" parent="." index="2"]
+pause_mode = 1
+_sections_unfolded = [ "Pause" ]
 
-modulate = Color( 1, 1, 1, 0.78451 )
-position = Vector2( 327.593, 1018.42 )
-scale = Vector2( 0.868078, 1.00566 )
-texture = ExtResource( 5 )
-_sections_unfolded = [ "Visibility" ]
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="Sounds" index="0"]
 
-[node name="BlackBG" type="Polygon2D" parent="." index="3"]
+pause_mode = 1
+stream = ExtResource( 5 )
+volume_db = -10.0
+autoplay = true
+mix_target = 0
+bus = "Master"
+_sections_unfolded = [ "Pause" ]
 
-position = Vector2( -19.8014, 12.1466 )
-scale = Vector2( 1.23436, 1.20992 )
-z_index = 1
-polygon = PoolVector2Array( -58.8748, -38.9497, -53.4568, 380.43, 646.903, 380.85, 651.294, -33.8761 )
-uv = PoolVector2Array(  )
-color = Color( 0, 0, 0, 1 )
-vertex_colors = PoolColorArray(  )
-offset = Vector2( 0, 0 )
-antialiased = false
-texture = null
-texture_offset = Vector2( 0, 0 )
-texture_scale = Vector2( 1, 1 )
-texture_rotation_degrees = 0.0
-invert_enable = false
-invert_border = 100.0
-_sections_unfolded = [ "Invert", "Texture", "Visibility", "Z Index" ]
+[node name="HandSound" type="AudioStreamPlayer" parent="Sounds" index="1"]
 
-[node name="WinningHandControl" type="Control" parent="BlackBG" index="0"]
+stream = ExtResource( 6 )
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="NothingHand" type="AudioStreamPlayer" parent="Sounds" index="2"]
+
+stream = ExtResource( 7 )
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="FireSound" type="AudioStreamPlayer" parent="Sounds" index="3"]
+
+stream = ExtResource( 8 )
+volume_db = 5.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="SnowSound" type="AudioStreamPlayer" parent="Sounds" index="4"]
+
+stream = ExtResource( 9 )
+volume_db = 5.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="CanvasLayer" type="Node2D" parent="." index="2"]
+
+position = Vector2( 15, 353 )
+z_index = 4
+_sections_unfolded = [ "Z Index" ]
+
+[node name="WinningHandControl" type="Control" parent="CanvasLayer" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
 anchor_bottom = 0.0
-margin_left = 20.0
-margin_top = 281.0
-margin_right = -93.1693
-margin_bottom = 321.0
+margin_right = -64.0
+margin_bottom = 40.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -154,44 +322,313 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 _sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Mouse", "Rect", "Size Flags", "Theme", "Visibility" ]
 
-[node name="WinningHandLabel" type="Label" parent="BlackBG/WinningHandControl" index="0"]
+[node name="ScoreLabel" type="Label" parent="CanvasLayer/WinningHandControl" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = -1.0
-margin_top = -45.0
-margin_right = 598.0
-margin_bottom = 74.0
+margin_left = 463.0
+margin_top = -340.0
+margin_right = 580.0
+margin_bottom = -232.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 7 )
+text = "30"
 align = 1
-valign = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Grow Direction", "Material", "Rect", "Visibility", "custom_colors", "custom_fonts" ]
+_sections_unfolded = [ "Rect", "Size Flags", "Visibility", "custom_constants", "custom_fonts", "custom_styles" ]
 
-[node name="BackgroundMusic" type="AudioStreamPlayer" parent="." index="4"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
 
-stream = ExtResource( 6 )
-volume_db = -10.0
-autoplay = true
-mix_target = 0
-bus = "Master"
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/ScoreAnimation = SubResource( 8 )
+blend_times = [  ]
+_sections_unfolded = [ "Playback Options" ]
 
-[node name="CoinsJingling" type="AudioStreamPlayer" parent="." index="5"]
+[node name="Top" type="Sprite" parent="." index="4"]
 
-stream = ExtResource( 7 )
-volume_db = 0.0
-autoplay = false
-mix_target = 0
-bus = "Master"
+position = Vector2( 538.457, 241.733 )
+scale = Vector2( 0.572036, 0.557292 )
+z_index = 2
+texture = ExtResource( 11 )
+_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
+
+[node name="WinningHandBanner" type="Sprite" parent="." index="5"]
+
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 542.567, 302.643 )
+rotation = -0.0408593
+scale = Vector2( 0.53027, 0.470423 )
+z_index = 3
+texture = ExtResource( 12 )
+_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
+
+[node name="BGTween" type="Tween" parent="." index="6"]
+
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+
+[node name="WinningHandTween" type="Tween" parent="." index="7"]
+
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+
+[node name="WinningHandTimer" type="Timer" parent="." index="8"]
+
+process_mode = 1
+wait_time = 2.0
+one_shot = true
+autostart = false
+
+[node name="TopMenu" type="Sprite" parent="." index="9"]
+
+position = Vector2( 541.046, 43.4 )
+scale = Vector2( 0.57, 0.55 )
+z_index = 3
+texture = ExtResource( 13 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="3Lines" type="Sprite" parent="TopMenu" index="0"]
+
+position = Vector2( 871.15, -15.7462 )
+scale = Vector2( 0.954824, 1.02745 )
+texture = ExtResource( 14 )
+
+[node name="BottomBar" type="Node2D" parent="." index="10"]
+
+z_index = 2
+_sections_unfolded = [ "Z Index" ]
+
+[node name="Background" type="Sprite" parent="BottomBar" index="0"]
+
+position = Vector2( 539.093, 2111.52 )
+scale = Vector2( 1.04218, 0.986201 )
+texture = ExtResource( 15 )
+_sections_unfolded = [ "Z Index" ]
+
+[node name="Buttons" type="Node2D" parent="BottomBar" index="1"]
+
+[node name="Special1" type="TouchScreenButton" parent="BottomBar/Buttons" index="0"]
+
+position = Vector2( 23.2635, 2029.97 )
+normal = ExtResource( 16 )
+pressed = ExtResource( 17 )
+bitmask = null
+shape = null
+shape_centered = true
+shape_visible = true
+passby_press = false
+action = ""
+visibility_mode = 0
+_sections_unfolded = [ "Visibility" ]
+
+[node name="fxDot" type="Sprite" parent="BottomBar/Buttons/Special1" index="0"]
+
+position = Vector2( 133.038, 130.605 )
+scale = Vector2( 0.540186, 0.540186 )
+texture = ExtResource( 18 )
+
+[node name="Quantity" type="Label" parent="BottomBar/Buttons/Special1" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 16.0
+margin_top = 103.0
+margin_right = 144.0
+margin_bottom = 254.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+custom_fonts/font = SubResource( 10 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "0"
+align = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="Special2" type="TouchScreenButton" parent="BottomBar/Buttons" index="1"]
+
+position = Vector2( 214.687, 2030.76 )
+normal = ExtResource( 19 )
+pressed = ExtResource( 20 )
+bitmask = null
+shape = null
+shape_centered = true
+shape_visible = true
+passby_press = false
+action = ""
+visibility_mode = 0
+
+[node name="fxDot" type="Sprite" parent="BottomBar/Buttons/Special2" index="0"]
+
+position = Vector2( 131.516, 131.531 )
+scale = Vector2( 0.540186, 0.540186 )
+texture = ExtResource( 18 )
+
+[node name="Quantity" type="Label" parent="BottomBar/Buttons/Special2" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 17.0
+margin_top = 103.0
+margin_right = 145.0
+margin_bottom = 254.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+custom_fonts/font = SubResource( 10 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "0"
+align = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="Fire" type="TouchScreenButton" parent="BottomBar/Buttons" index="2"]
+
+position = Vector2( 409.163, 2030.55 )
+normal = ExtResource( 21 )
+pressed = ExtResource( 22 )
+bitmask = null
+shape = null
+shape_centered = true
+shape_visible = true
+passby_press = false
+action = ""
+visibility_mode = 0
+
+[node name="fxDot" type="Sprite" parent="BottomBar/Buttons/Fire" index="0"]
+
+position = Vector2( 135.529, 130.884 )
+scale = Vector2( 0.540186, 0.540186 )
+texture = ExtResource( 18 )
+
+[node name="Quantity" type="Label" parent="BottomBar/Buttons/Fire" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 18.0
+margin_top = 105.0
+margin_right = 146.0
+margin_bottom = 256.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+custom_fonts/font = SubResource( 10 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_constants/shadow_as_outline = 1
+text = "0"
+align = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_colors", "custom_constants", "custom_fonts" ]
+
+[node name="Snow" type="TouchScreenButton" parent="BottomBar/Buttons" index="3"]
+
+position = Vector2( 606.849, 2030.55 )
+normal = ExtResource( 23 )
+pressed = ExtResource( 24 )
+bitmask = null
+shape = null
+shape_centered = true
+shape_visible = false
+passby_press = false
+action = ""
+visibility_mode = 0
+
+[node name="fxDot" type="Sprite" parent="BottomBar/Buttons/Snow" index="0"]
+
+position = Vector2( 137.611, 132.599 )
+scale = Vector2( 0.540186, 0.540186 )
+texture = ExtResource( 18 )
+_sections_unfolded = [ "Z Index" ]
+
+[node name="Quantity" type="Label" parent="BottomBar/Buttons/Snow" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 21.0
+margin_top = 104.0
+margin_right = 149.0
+margin_bottom = 255.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+custom_fonts/font = SubResource( 10 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "0"
+align = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="Pause" type="TouchScreenButton" parent="BottomBar/Buttons" index="4"]
+
+pause_mode = 2
+position = Vector2( 886.221, 2030.99 )
+scale = Vector2( 1.2367, 1.16227 )
+normal = ExtResource( 25 )
+pressed = ExtResource( 26 )
+bitmask = null
+shape = null
+shape_centered = true
+shape_visible = true
+passby_press = false
+action = ""
+visibility_mode = 0
+_sections_unfolded = [ "Pause" ]
+
+[connection signal="timeout" from="WinningHandTimer" to="." method="_on_WinningHandTimer_timeout"]
+
+[connection signal="pressed" from="BottomBar/Buttons/Fire" to="." method="_on_Fire_pressed"]
+
+[connection signal="pressed" from="BottomBar/Buttons/Snow" to="." method="_on_Snow_pressed"]
+
+[connection signal="pressed" from="BottomBar/Buttons/Pause" to="." method="_on_Pause_pressed"]
 
 

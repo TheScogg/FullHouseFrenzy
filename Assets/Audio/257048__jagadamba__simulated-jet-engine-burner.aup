@@ -1,0 +1,39 @@
+<?xml version="1.0" standalone="no" ?>
+<!DOCTYPE project PUBLIC "-//audacityproject-1.3.0//DTD//EN" "http://audacity.sourceforge.net/xml/audacityproject-1.3.0.dtd" >
+<project xmlns="http://audacity.sourceforge.net/xml/" projname="257048__jagadamba__simulated-jet-engine-burner_data" version="1.3.0" audacityversion="2.2.1" sel0="0.0000000000" sel1="0.0000000000" vpos="0" h="0.0000000000" zoom="625.5876068376" rate="44100.0" snapto="off" selectionformat="hh:mm:ss + milliseconds" frequencyformat="Hz" bandwidthformat="octaves">
+	<tags/>
+	<wavetrack name="257048__jagadamba__simulated-jet-engine-burner" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="44100" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="141551">
+				<waveblock start="0">
+					<simpleblockfile filename="e0000c6d.au" len="141551" min="-0.684193" max="0.807631" rms="0.108135"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="6">
+				<controlpoint t="1.174895397490" val="0.774647891521"/>
+				<controlpoint t="2.360980274955" val="0.422535240650"/>
+				<controlpoint t="2.797369994023" val="0.253521144390"/>
+				<controlpoint t="2.853317393903" val="0.253521144390"/>
+				<controlpoint t="3.061122022031" val="0.098591566086"/>
+				<controlpoint t="3.139448381863" val="0.028169035912"/>
+			</envelope>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="257048__jagadamba__simulated-jet-engine-burner" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="44100" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="141551">
+				<waveblock start="0">
+					<simpleblockfile filename="e0000375.au" len="141551" min="-0.559231" max="0.662255" rms="0.103681"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="6">
+				<controlpoint t="1.174895397490" val="0.774647891521"/>
+				<controlpoint t="2.360980274955" val="0.422535240650"/>
+				<controlpoint t="2.797369994023" val="0.253521144390"/>
+				<controlpoint t="2.853317393903" val="0.253521144390"/>
+				<controlpoint t="3.061122022031" val="0.098591566086"/>
+				<controlpoint t="3.139448381863" val="0.028169035912"/>
+			</envelope>
+		</waveclip>
+	</wavetrack>
+</project>

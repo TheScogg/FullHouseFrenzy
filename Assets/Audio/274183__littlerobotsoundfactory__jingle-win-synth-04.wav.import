@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/274183__littlerobotsoundfactory__jingle-win-synth-04.wav-a1c0045b6d9bdadb6d55d1100cf493a3.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/274183__littlerobotsoundfactory__jingle-win-synth-04.wav"
+source_md5="5c3bf13266bdb32c76fc61b4acc5a3cb"
+
+dest_files=[ "res://.import/274183__littlerobotsoundfactory__jingle-win-synth-04.wav-a1c0045b6d9bdadb6d55d1100cf493a3.sample" ]
+dest_md5="bd1b98859dc9f6bb5d648028f1b4de4c"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

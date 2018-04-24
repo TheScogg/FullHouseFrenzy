@@ -5,16 +5,22 @@
 
 [node name="Main" type="Node2D"]
 
+_sections_unfolded = [ "Pause" ]
+
 [node name="UI" parent="." index="0" instance=ExtResource( 1 )]
 
-_sections_unfolded = [ "Transform" ]
+editor/display_folded = true
+_sections_unfolded = [ "Material", "Pause", "Transform", "Visibility", "Z Index" ]
+scoreLabel = null
+pauseButton = null
 
 [node name="Cards" type="Node2D" parent="." index="1"]
 
+pause_mode = 1
 script = ExtResource( 2 )
-_sections_unfolded = [ "Transform" ]
-width = 5
-height = 7
+_sections_unfolded = [ "Pause", "Transform", "Z Index" ]
+width = 8
+height = 12
 
 [node name="DeleteCardsTween" type="Tween" parent="Cards" index="0"]
 
@@ -32,6 +38,9 @@ wait_time = 1.0
 one_shot = true
 autostart = false
 
+[connection signal="tween_completed" from="Cards/DeleteCardsTween" to="Cards" method="_on_DeleteCardsTween_tween_completed"]
+
 [connection signal="timeout" from="Cards/RedrawTimer" to="Cards" method="_on_RedrawTimer_timeout"]
 
 
+[editable path="UI"]

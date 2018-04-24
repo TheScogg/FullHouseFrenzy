@@ -1,0 +1,18 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/bensound-happyrock.ogg-e518e0bf87737401a465991003e4b6cf.oggstr"
+
+[deps]
+
+source_file="res://Assets/Audio/bensound-happyrock.ogg"
+source_md5="4875c2652398b9e3dea8de0472d0e915"
+
+dest_files=[ "res://.import/bensound-happyrock.ogg-e518e0bf87737401a465991003e4b6cf.oggstr" ]
+dest_md5="34ebf593d261c859d5119ba384657ab5"
+
+[params]
+
+loop=true
+loop_offset=0

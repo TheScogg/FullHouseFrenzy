@@ -1,10 +1,20 @@
 extends Node
 
 #Number of cards on board
-export var width = 5
-export var height = 7
+export var width = 8
+export var height = 12
+
 var topOrder = []
 signal draw
+
+#Binary switch to forbit selecting tiles while they are going through the process of being replaced by new tiles
+var canSelect = true
+
+var resolution
+var cardSize
+var spacing
+var padding
+var cardScale
 
 #Loading external nodes and scripts
 var Card = preload("res://Scenes/Card.tscn")
@@ -13,9 +23,12 @@ onready var UI = get_node("/root/Main/UI")
 
 signal winner
 
+func _enter_tree():
+	pass
+
 func _ready():
 	connect("winner", UI, "displayWinningHand")
-
+	setCardSize()
 	populate()
 	
 # Iterates through all cards on board and resets to non-selected color modulation
@@ -25,34 +38,29 @@ func clearHand():
 			card.get_node("Control/Button").modulate = Color(1.0,1.0,1.0,1.0)
 			card.card.selected = false
 
-
-#Initial Width x Height Card Population
 func populate():
-	self.position = Vector2(10,get_viewport().size.y - 150)
+	self.position = Vector2(padding.x,get_viewport().size.y - spacing.y - 200)
 
-	var padding = .25
-
-	for i in range(height):
+	# Creates all card nodes, column by column, row by row, and brings them onto the board
+	for i in range(globals.height):
 		var cardsArrayLineBuffer = []
 		
-		for j in range (width):
+		for j in range (globals.width):
 			var card = Card.instance()
-			card.init(i,j)
+			card.init(i,j, cardScale)
 			self.add_child(card)
-			card.position = Vector2(j * 150, (-i * 150))
-
-
+			card.position = Vector2(j * spacing.x, (-i * spacing.y))
 			cardsArrayLineBuffer.append(card)
-
-#			card.getCard().coordinates = [i,j]
 			
 			#Setting initial (not really 'old') position for zipper fade in tween
 			if (i % 2 == 0):
-				card.getCard().oldPosition = Vector2((j * 150) - 800, -i * 150)
+				card.getCard().oldPosition = Vector2((j * spacing.x) - 800, -i * spacing.y)
 			else:
-				card.getCard().oldPosition = Vector2((j * 150) + 800, -i * 150)
+				card.getCard().oldPosition = Vector2((j * spacing.x) + 800, -i * spacing.y)
 
-			card.get_node("Tween").interpolate_property(card, "position", card.getCard().oldPosition, Vector2(card.getCard().coordinates[1] * 150, card.getCard().coordinates[0] * -150), 1, Tween.TRANS_SINE , Tween.EASE_IN_OUT)
+			# Creating and starting tween for initial card entry animation
+			card.get_node("Tween").interpolate_property(card, "position", card.getCard().oldPosition, 
+			Vector2(card.getCard().coordinates[1] * spacing.x, card.getCard().coordinates[0] * -spacing.y), 1, Tween.TRANS_SINE , Tween.EASE_IN_OUT)
 			card.get_node("Tween").start()
 			
 			card.getCard().oldPosition = card.position
@@ -62,126 +70,115 @@ func populate():
 ## Redraws Board after winning hand, dropping existing higher tiles into lower voids left by winning hand, 
 ## and generating new random cards for empty spots
 func repopulate():
-	
-	var oldCardsArray = []
-	
 
-	for i in range(height):
-		for j in range(width):
-			oldCardsArray.append(globals.cardsArray[i][j])
+	for i in range(globals.height):
+		for j in range(globals.width):
+			# If card was just played, erase it to make room for replacement card
 			if (globals.cardsArray[i][j] in globals.cardsSelected):
 				globals.cardsArray[i][j] = null
 
 
-	#Array to help facilitate initial positioning of newly instanced cards. 
-	topOrder = [0,0,0,0,0]
+	#Array to help facilitate initial positioning of newly instanced cards, which will drop in from top of board. Purely aesthetic.
+	for i in range(globals.width):
+		topOrder.append(0)
+
 	
-	for i in range(height):
-#		topOrder = topOrder + 1
-		for j in range(width):
-
-
-
+	for i in range(globals.height):
+		for j in range(globals.width):
+			
 			if (globals.cardsArray[i][j] == null):
-
-
-				if (i < height - 1):
-
-#					var higher = []
+				#If NOT on top row:
+				if (i < globals.height - 1):
 					var level = i + 1
 					
-					while (level < height):
-
+					#Pulls cards from above, and nullifies said cards. Basically a sorting algorithm. 
+					while (level < globals.height):
 						if (globals.cardsArray[level][j] != null):
 							globals.cardsArray[i][j] = globals.cardsArray[level][j]
 							globals.cardsArray[level][j] = null
-
-
 							break
 						level += 1
-	
-					if (globals.cardsArray[i][j] == null):
-						var card = Card.instance()
-						card.init(i,j)
-						globals.cardsArray[i][j] = card
-#						self.add_child(globals.cardsArray[i][j])
-						topOrder[j] += 1
-						globals.cardsArray[i][j].getCard().oldPosition = Vector2(j * 150, -900 - (150 * topOrder[j]))
-				
-				#TOP ROW - seems to work correctly, remember to change -2500 to -1500
-				else:
+
+				if (globals.cardsArray[i][j] == null || i == globals.height - 1):
 					var card = Card.instance()
+					card.init(i,j, cardScale)
 					globals.cardsArray[i][j] = card
-					card.init(i,j)
-#					self.add_child(globals.cardsArray[i][j])
 					topOrder[j] += 1
-#					card.position = Vector2(j * 150, (-i * 150))
-					globals.cardsArray[i][j].getCard().oldPosition = Vector2(j * 150, -900 - (150 * topOrder[j]))
+					globals.cardsArray[i][j].getCard().oldPosition = Vector2(j * spacing.x, -resolution.y - (spacing.y * topOrder[j]))
 
-					
-
-
+	# DELAY TACTIC - for some reason, selecting cards during redraw animation does some wonky stuff. So, I disable selecting cards during
+	# this time. 
 	for card in globals.cardsSelected:
-		print (card)
-		$DeleteCardsTween.interpolate_property(card, "modulate", Color(1.0,1.0,0,1.0), Color(1.0,1.0,0,0.0), .5, Tween.TRANS_SINE , Tween.EASE_IN_OUT)
+		canSelect = false
+		$DeleteCardsTween.interpolate_property(card, "modulate", Color(1.0,1.0,0,1.0), Color(1.0,1.0,0,0.0), .3, Tween.TRANS_SINE , Tween.EASE_IN_OUT)
 		$DeleteCardsTween.start()
-
-	$RedrawTimer.wait_time = .6
+	
 	$RedrawTimer.start()
-#	
+	$RedrawTimer.wait_time = .3
 
-
+func _on_RedrawTimer_timeout():
+	redraw()
+	canSelect = true
+	
 func redraw():
 	var cardsArray = []
 	var card
-	
-	for i in range(height):
-		for j in range(width):
+
+	for i in range(globals.height):
+		for j in range(globals.width):
 			card = globals.cardsArray[i][j]
-			self.add_child(card)
-			print (card.getCard().oldPosition)
+			
+			if not card in self.get_children():
+				self.add_child(card)
+
 			card.position = card.getCard().oldPosition
-#			card.getCard().oldPosition = Vector2(j * 150, -i * 150 )
 			
 			card.getCard().coordinates = [i,j]
 			card.getCard().selected = false
-#			card.position = Vector2(j * 150, -i * 150)
 
 			card.get_node("Tween").interpolate_property(globals.cardsArray[i][j], "position", 
-			card.getCard().oldPosition, Vector2(j * 150, -i * 150), 1, Tween.TRANS_SINE , Tween.EASE_IN_OUT)
-#			card.get_node("Tween").playback_speed = (card.getCard().oldPosition.y - card.position.y) * -.005
-			if (topOrder[j] > 0):
-				print (1/float(topOrder[j]))
-#				card.get_node("Tween").playback_speed = 1/float(topOrder[j]) * 3
-				card.get_node("Tween").playback_speed = 2
+			card.getCard().oldPosition, Vector2(j * spacing.x, -i * spacing.y), 1, Tween.TRANS_SINE , Tween.EASE_IN_OUT)
+
 			card.get_node("Tween").start()
-			card.getCard().oldPosition = Vector2(j * 150, -i * 150)
 			
+			card.getCard().oldPosition = Vector2(j * spacing.x, -i * spacing.y)
 			
+	topOrder.clear()
+			
+func setCardSize():
+	resolution= Vector2(ProjectSettings.get_setting("display/window/size/width"), ProjectSettings.get_setting("display/window/size/height")
+	- UI.get_node("BoardBG").position.y - 246)
 
-		
+	#width is actual width of card, (width+1) / X where X is a gutter 1/Xth the size of the cards
+	cardSize = Vector2((resolution.x / (float(globals.width) + float(globals.width+1) / 7)), 
+	(resolution.y / (float(globals.height) + float(globals.height+1) / 7)))
 
+	padding = Vector2(cardSize.x / 7, cardSize.y / 7)
+	spacing = Vector2(cardSize.x + padding.x, cardSize.y + padding.y)
 	
+	#Maximum size of card divided by actual size of card texture
+	cardScale = Vector2(cardSize.x / 512, cardSize.y/512)	
 
-	
-		
 # Finds winning hand and sends signal to UI.displayWinningHand(hand)
 func submitHand():
 	var winningHand = Utils.evaluateHand()
-	print (winningHand)
 	emit_signal("winner", winningHand)
 	clearHand()
 	
 	# Only replace cards if an actual winning hand was found
 	if (winningHand[0] != "NOTHING!!!"):
-
 		repopulate()
+	#Increment special powerup quantities if special card in hand
+	for card in globals.cardsSelected:
+		if (card.card.special == "Snow"):
+			UI.get_node("BottomBar/Buttons/Snow/Quantity").text = String(1)
+
 
 #Verifies whether or not selected card is adjacent to already selected card
 static func validateMove(card):
 
 	var neighbors = []
-	
+
 	if (!card.coordinates[0]+1 == globals.cardsArray.size()):
 		neighbors.append(globals.cardsArray[card.coordinates[0]+1][card.coordinates[1]])
 	if (!card.coordinates[1]+1 == globals.cardsArray[0].size()):
@@ -201,18 +198,5 @@ static func validateMove(card):
 
 	return false
 
-
-#func _on_DeleteCardsTween_tween_completed(object, key):
-#	self.remove_child(object)
-#	$DeleteCardsTween.remove(object)
-#	redraw()
-
-
-
-
-
-func _on_RedrawTimer_timeout():
-	for card in globals.cardsSelected:
-		self.remove_child(card)
-#	$DeleteCardsTween.remove(object)
-	redraw()
+func _on_DeleteCardsTween_tween_completed(object, key):
+	object.queue_free()

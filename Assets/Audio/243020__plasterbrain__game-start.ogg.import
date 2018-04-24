@@ -1,0 +1,18 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/243020__plasterbrain__game-start.ogg-0dcb7155e4c4b30b11c79493490a8788.oggstr"
+
+[deps]
+
+source_file="res://Assets/Audio/243020__plasterbrain__game-start.ogg"
+source_md5="27cd0fe1e26bdada94da38004a00fd77"
+
+dest_files=[ "res://.import/243020__plasterbrain__game-start.ogg-0dcb7155e4c4b30b11c79493490a8788.oggstr" ]
+dest_md5="bf4a4701167e40cf798ff692ab9344c5"
+
+[params]
+
+loop=true
+loop_offset=0

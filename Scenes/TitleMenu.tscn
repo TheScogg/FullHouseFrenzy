@@ -1,0 +1,102 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://TitleMenu.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Art/UI/Game/TitleMenu.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Art/UI/TitleMenu/FullHouse.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Art/UI/TitleMenu/Frenzy.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Art/UI/TitleMenu/Play.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Art/UI/TitleMenu/Exit.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Audio/274183__littlerobotsoundfactory__jingle-win-synth-04.wav" type="AudioStream" id=7]
+[ext_resource path="res://Assets/Audio/bensound-happyrock.ogg" type="AudioStream" id=8]
+[ext_resource path="res://Assets/Art/UI/TitleMenu/slice1.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Art/UI/TitleMenu/Menu Icon.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Art/UI/TitleMenu/PokerChip.png" type="Texture" id=11]
+
+[node name="TitleMenu" type="Node2D"]
+
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 501.113 ]
+}
+
+[node name="Background" type="Sprite" parent="." index="0"]
+
+position = Vector2( 539.524, 1101.44 )
+scale = Vector2( 1.05469, 1.02241 )
+texture = ExtResource( 2 )
+
+[node name="FullHouse" type="Sprite" parent="." index="1"]
+
+position = Vector2( 773.291, 100.701 )
+texture = ExtResource( 3 )
+
+[node name="Frenzy" type="Sprite" parent="." index="2"]
+
+position = Vector2( 546.104, 269.376 )
+texture = ExtResource( 4 )
+
+[node name="Play" type="TouchScreenButton" parent="." index="3"]
+
+position = Vector2( 243.232, 1288.19 )
+normal = ExtResource( 5 )
+pressed = null
+bitmask = null
+shape = null
+shape_centered = true
+shape_visible = true
+passby_press = false
+action = ""
+visibility_mode = 0
+
+[node name="Exit" type="TouchScreenButton" parent="." index="4"]
+
+position = Vector2( 250.306, 1781.22 )
+normal = ExtResource( 6 )
+pressed = null
+bitmask = null
+shape = null
+shape_centered = true
+shape_visible = true
+passby_press = false
+action = ""
+visibility_mode = 0
+
+[node name="PlaySound" type="AudioStreamPlayer" parent="." index="5"]
+
+stream = ExtResource( 7 )
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Music" type="AudioStreamPlayer" parent="." index="6"]
+
+stream = ExtResource( 8 )
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="GodotCredit" type="Sprite" parent="." index="7"]
+
+position = Vector2( 483.106, 2153.73 )
+scale = Vector2( 1.0234, 1 )
+texture = ExtResource( 9 )
+
+[node name="Menu Icon" type="Sprite" parent="." index="8"]
+
+position = Vector2( 989.293, 2127.03 )
+texture = ExtResource( 10 )
+
+[node name="PokerChip" type="Sprite" parent="." index="9"]
+
+position = Vector2( 550.55, 835.847 )
+texture = ExtResource( 11 )
+
+[connection signal="pressed" from="Play" to="." method="_on_Play_pressed"]
+
+[connection signal="pressed" from="Exit" to="." method="_on_Exit_pressed"]
+
+[connection signal="finished" from="PlaySound" to="." method="_on_PlaySound_finished"]
+
+

@@ -11,23 +11,23 @@ config_version=3
 [application]
 
 config/name="FullHouse"
-run/main_scene="res://Scenes/Main.tscn"
+run/main_scene="res://Scenes/TitleMenu.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 globals="*res://Scripts/globals.gd"
+Transition="*res://Scenes/Transition.tscn"
 
 [display]
 
-window/size/width=750
-window/size/height=1541
-window/size/test_width=375
-window/size/test_height=667
+window/size/width=1080
+window/size/height=2200
+window/size/test_width=270
+window/size/test_height=550
 window/handheld/orientation="portrait"
 window/handheld/emulate_touchscreen=true
 window/stretch/mode="viewport"
-window/stretch/aspect="keep"
 window/stretch/shrink="1"
 
 [input]

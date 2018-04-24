@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/117136__cobratronik__wind-artic-cold.wav-6c71e62fa7ed46c6b04fcc380badcd0e.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/117136__cobratronik__wind-artic-cold.wav"
+source_md5="83c9bea1379efc59788cd0ccb2dd06f1"
+
+dest_files=[ "res://.import/117136__cobratronik__wind-artic-cold.wav-6c71e62fa7ed46c6b04fcc380badcd0e.sample" ]
+dest_md5="13c7b472eb09bba9b092ec6f51a0d347"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

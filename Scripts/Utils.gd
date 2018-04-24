@@ -8,16 +8,29 @@ func _ready():
 
 	pass
 
+
+#######################RANDOM CARD GENERATOR ##############################
+###########################################################################
+
+static func getSpecial():
+	var powerups = ["Snow", "Fire"]
+	var num = randi() % 100
+	
+	if (num <= 10):
+		return powerups[randi() % powerups.size()]
+	
+	return null
+
 static func RandomCard(coordinates):
 	randomize()
-	print (coordinates)
+
 	var suits = ["Spades", "Clubs", "Diamonds", "Hearts"]
 	#directory is an Array of filenames
 
 	var number = randi() % 13 + 2
 	var suit = suits[randi() % suits.size()]
 
-	
+
 	#Returned dictionary with all info about card (name, suit, value, etc.)
 	var dict = {}
 	dict["name"] = String(number) + suit
@@ -26,6 +39,9 @@ static func RandomCard(coordinates):
 	dict["texture"] = String(number) + suit + ".png"
 	dict["coordinates"] = coordinates
 	dict["selected"] = false
+	# For powerups. Using a random number generator to determine whether card contains powerup or not. 
+	dict["special"] = getSpecial()
+	
 	return dict
 
 static func GetDirectory(path):
@@ -45,23 +61,24 @@ static func GetDirectory(path):
 	
 	return files
 
+########################### HAND EVALUATOR ################################
+###########################################################################
+
 static func evaluateHand():
 	var tally = {}
 	var flush = true
 	
-
-	
 	#index:[Winning Hand, Quantity of Said Winning Hand]
 	var winningHands = {
-		0:["Royal Flush",0,500],
-		1:["Straight Flush",0,250], #First Pass DONE
-		2:["Four of a Kind",0, 100], #DONE
-		3:["Full House",0,75], #Second Pass #DONE
-		4:["Flush",0,15], #First Pass DONE
-		5:["Straight",0,50], #First Pass DONE
-		6:["Three of a Kind",0,25], #Fist Pass DONE
-		7:["Two Pair",0,15], #Second Pass - winningHands[8][1] == 2 DONE
-		8:["Pair",0,10] #First Pass DONE
+		0:["Royal Flush",0,500, "WinRoyalFlush.png"],
+		1:["Straight Flush",0,250, "WinStraightFlush.png"], #First Pass DONE
+		2:["Four of a Kind",0, 100, "Win4OfAKind.png"], #DONE
+		3:["Full House",0,75, "WinFullHouse.png"], #Second Pass #DONE
+		4:["Flush",0,50, "WinFlush.png"], #First Pass DONE
+		5:["Straight",0,50, "WinStraight.png"], #First Pass DONE
+		6:["Three of a Kind",0,25, "Win3OfAKind.png"], #Fist Pass DONE
+		7:["Two Pair",0,15, "Win2Pair.png"], #Second Pass - winningHands[8][1] == 2 DONE
+		8:["Pair",0,10, "WinPair.png"] #First Pass DONE
 	}
 	#Populate tally to hold quanity of each card in submitted hand
 	for i in range(2,15):
@@ -85,15 +102,18 @@ static func evaluateHand():
 				flush = false
 				
 
-	 
+
 	# Then, run through tally of all ranks, and assign winning hands based on results
 	for rank in tally:
 		#Straight
 		if (rank <= 10):
 			if (tally[rank] && tally[rank+1] && tally[rank+2] && tally[rank+3] && tally[rank+4]):
 				winningHands[5][1] = 1
+				# Royal Flush
+				if (rank == 10 && flush):
+					winningHands[0][1] = 1
 		#4 of a Kind
-		if (tally[rank] == 4):
+		if (tally[rank] >= 4):
 			winningHands[2][1] = 1			
 		#3 of a Kind
 		if (tally[rank] == 3):
@@ -101,7 +121,7 @@ static func evaluateHand():
 		#Pair
 		if (tally[rank] == 2):
 			winningHands[8][1] += 1
-		print (rank, " : ", !tally[rank])
+
 		
 		if (flush && globals.cardsSelected.size() == 5):
 			#If Straight, Straight Flush
@@ -113,12 +133,10 @@ static func evaluateHand():
 	############################################################################
 	#Iterating through tally to assign winning hands to winningHands, 2nd Pass##
 	############################################################################
-	
+
 	# If two single pairs, then winning hand is 2 Pair
 	if (winningHands[8][1] == 2):
-
 		winningHands[7][1] = 1
-
 		
 	# Full House - 2 of a Kind, and 3 of a Kind
 	if (winningHands[8][1] == 1 && winningHands[6][1] == 1):
@@ -135,9 +153,10 @@ static func evaluateHand():
 
 			break
 	if (!hands.size()):
-		return (["NOTHING!!!",0,-100])
+		return (["NOTHING!!!",0,-50, "Nothing.png"])
 		
 
+	
 	return hands[0]
 
 

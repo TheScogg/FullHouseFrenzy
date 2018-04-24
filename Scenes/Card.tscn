@@ -4,6 +4,7 @@
 
 [node name="Card" type="Node2D"]
 
+z_index = 2
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
@@ -34,14 +35,7 @@ action = ""
 visibility_mode = 0
 _sections_unfolded = [ "Material", "Transform", "Visibility" ]
 
-[node name="Timer" type="Timer" parent="." index="1"]
-
-process_mode = 1
-wait_time = 2.0
-one_shot = false
-autostart = false
-
-[node name="Tween" type="Tween" parent="." index="2"]
+[node name="Tween" type="Tween" parent="." index="1"]
 
 repeat = false
 playback_process_mode = 1
@@ -51,7 +45,7 @@ playback/repeat = false
 playback/speed = 1.0
 _sections_unfolded = [ "playback" ]
 
-[node name="fadeCard" type="Tween" parent="." index="3"]
+[node name="fadeCard" type="Tween" parent="." index="2"]
 
 repeat = false
 playback_process_mode = 1
@@ -61,7 +55,5 @@ playback/repeat = false
 playback/speed = 1.0
 
 [connection signal="pressed" from="Control/Button" to="." method="_on_Button_pressed"]
-
-[connection signal="tween_completed" from="fadeCard" to="." method="_on_fadeCard_tween_completed"]
 
 

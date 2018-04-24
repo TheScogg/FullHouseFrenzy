@@ -1,0 +1,18 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/bensound-sadday.ogg-92e34bf0f381a7195e4041b5cdbe2abd.oggstr"
+
+[deps]
+
+source_file="res://Assets/Audio/bensound-sadday.ogg"
+source_md5="939884c0c1458fd3d546f0694487ef0b"
+
+dest_files=[ "res://.import/bensound-sadday.ogg-92e34bf0f381a7195e4041b5cdbe2abd.oggstr" ]
+dest_md5="0b03233b74c9f599f55dc2dc4fe7590b"
+
+[params]
+
+loop=true
+loop_offset=0

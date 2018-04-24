@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/140382__d-w__coins-01.wav-2079e0aa6deda39454ae7887b130a7d9.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/140382__d-w__coins-01.wav"
+source_md5="139a3bf3dbbd0e77ae81c2e9ba3cef3f"
+
+dest_files=[ "res://.import/140382__d-w__coins-01.wav-2079e0aa6deda39454ae7887b130a7d9.sample" ]
+dest_md5="9d9ef0d5f57139c46af44f83576b5cb9"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

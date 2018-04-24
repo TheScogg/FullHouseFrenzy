@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/270476__littlerobotsoundfactory__stab-knife-00.wav-a4ad1a519edd19f34aede21ca4b453a8.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/270476__littlerobotsoundfactory__stab-knife-00.wav"
+source_md5="e8da0edebab216f940c28020e0d6eb70"
+
+dest_files=[ "res://.import/270476__littlerobotsoundfactory__stab-knife-00.wav-a4ad1a519edd19f34aede21ca4b453a8.sample" ]
+dest_md5="ab61e74afde13349253fa44af57af223"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

@@ -7,8 +7,12 @@ var score = 30
 var level = 1
 var fingerDown = false
 
+var width = 5	
+var height = 7
+
 func _ready():
 	set_process(true)
+
 
 func _input(ev):
 	if (Input.is_mouse_button_pressed(1)):
@@ -20,14 +24,7 @@ func getFingerDown():
 	return fingerDown
 
 func _process(delta):
+
 	pass
-#func getCardArray():
-#	for row in range(cardsArray.size()):
-#		print ("Row " + String(row) + ": ")
-#		for card in range(cardsArray[row].size()):
-#			print (cardsArray[row][card].getCard().name)
-			
-
-			
-
-
+func getBoxSize():
+	pass
